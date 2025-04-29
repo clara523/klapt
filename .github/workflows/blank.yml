@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Schreibseite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Meine Schreibseite</h1>
+  <textarea id="editor" placeholder="Schreib hier..."></textarea>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+body {
+  font-family: sans-serif;
+  margin: 2rem;
+  background-color: #f4f4f4;
+}
+
+textarea {
+  width: 100%;
+  height: 400px;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+
+// Speichert Text automatisch im Local Storage
+const editor = document.getElementById('editor');
+
+editor.value = localStorage.getItem('text') || '';
+
+editor.addEventListener('input', () => {
+  localStorage.setItem('text', editor.value);
+});
+
